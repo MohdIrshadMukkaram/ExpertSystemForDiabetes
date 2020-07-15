@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+  <body>
+    <div class="container-section">
+      <div id="loader">
+        <div id="top"></div>
+        <div id="bottom"></div>
+        <div id="line"></div>
+      </div>
+      <div id="loading"><p>Generating Prescription Please Wait...</p></div>
+      <div id="formdiv" class="w3-card-4 w3-sand">
+      <form id="form1" method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Prescription Form</legend>
+          <div class="row">
+            <div class="col-md-6">
+              {{form.fasting|as_crispy_field}}
+            </div>
+            <div class="col-md-6">
+              {{form.posting|as_crispy_field}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              {{form.diabetic_exp|as_crispy_field}}
+            </div>
+            <div class="col-md-6">
+              {{form.medicine_taken|as_crispy_field}}
+            </div>
+          </div>
+          </fieldset>
+           <div class="form-group">
+          <input id="submit1" value="Give Prescription" class="btn btn-outline-info" type="submit" onclick="showSpinner()" >
+        </div>
+      </form>
+      </div>
+  
+        </div>
+        
+      
+
+          
+       
+       
+    <script>
+    function showSpinner(){
+    document.getElementById("formdiv").style.display = 'none';
+    document.getElementById("loader").style.display = 'block';
+    document.getElementById("loading").style.display = 'block';
+    }
+   
+    </script>
+  </body>
+  
+  
+{% endblock content %}

@@ -1,0 +1,127 @@
+{% extends 'blog/base.html' %}
+
+
+
+<script>
+{% block jquery %}
+var endpoint = '/api/chart/data'
+				
+$.ajax({
+	method: 'GET',
+	url: endpoint,
+	success: function(data){
+			labels = data.labels;
+			defaultData = data.default;
+			fasting_ranges = data.fasting;
+			posting_ranges = data.posting;
+			//console.log(user)
+			setChart();
+		    },
+	error: function(error_data){
+		   console.log("ERROR!")
+		   console.log(error_data)
+		}
+})
+				
+function setChart(){
+	var ctx = document.getElementById('FastingChart').getContext('2d');
+	var ctx1 = document.getElementById('PostingChart').getContext('2d');
+
+
+
+	var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+				labels: labels,
+				datasets: [{
+					fill:false,
+					label: 'Previous Fasting Sugar Levels (Normal Range: 70 - 110)',
+					data: fasting_ranges,
+			    	backgroundColor: [
+				   		'rgb(249,245,240)',
+				    	'rgb(249,245,240)',
+						'rgb(249,245,240)',
+						'rgb(249,245,240)',
+						'rgb(249,245,240)',
+					],
+					borderColor: [
+				 		'rgb(194,178,128)',
+						'rgb(194,178,128)',
+						'rgb(194,178,128)',
+						'rgb(194,178,128)',
+						'rgb(194,178,128)',
+					],
+					borderWidth: 2
+			    }],
+				},
+		    	options: {
+					scales: {
+						yAxes: [{
+							ticks: {
+								suggestedMax: 200,
+								suggestedMin: 20
+							}
+						}]
+					}
+				}
+			})
+	var myChart = new Chart(ctx1, {
+				type: 'bar',
+				data: {
+					labels: labels,
+					datasets: [{
+						fill: false,
+						label: 'Previous Posting Sugar Levels (Normal Range: 110 - 180)',
+						data: posting_ranges,
+						backgroundColor: [
+							'rgb(249,245,240)',
+				    		'rgb(249,245,240)',
+							'rgb(249,245,240)',
+							'rgb(249,245,240)',
+							'rgb(249,245,240)',
+						],
+						borderColor: [
+							'rgb(194,178,128)',
+							'rgb(194,178,128)',
+							'rgb(194,178,128)',
+							'rgb(194,178,128)',
+							'rgb(194,178,128)',
+						],
+						borderWidth: 2,
+					}],
+				},
+			 	options: {
+
+					scales: {
+						yAxes: [{
+							ticks: {
+								suggestedMax: 350,
+								suggestedMin: 80
+							}
+						}]
+					}
+					
+				}
+			})
+	
+
+}
+{% endblock %}
+</script>
+{% block content %}
+<div class="w3-card-4 w3-sand w3-animate-opacity" id="formdiv">
+			<h3 class="center">Sugar Levels from your last visits</h3>
+
+	
+		
+			<div class="row">
+				<div class="col-md-6">
+					<canvas id="FastingChart" width="200" height="200"></canvas>
+				</div>
+				<div class="col-md-6">
+					<canvas id="PostingChart" width="200" height="200"></canvas>
+				</div>
+			</div>
+		
+	</div>
+{% endblock %}

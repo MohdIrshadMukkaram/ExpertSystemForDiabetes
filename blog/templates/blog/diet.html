@@ -1,0 +1,732 @@
+{% extends "blog/base.html" %}
+{% block content %}
+  {% load static %}
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css'%}">
+      
+    </head>
+    <body class="sidebar">
+      
+      
+      <div id="formdiv" class="w3-card-4 w3-animate-opacity">
+        <div class="col">
+          <div class="collapse " id="multiCollapseExample5">
+            
+            <div class="card-body w3-card-4 w3-animate-opacity">
+              <div class="row">
+                <div class="col-md-4 section">
+                  <div class="card-head">Low Blood Sugar Levels</div>
+                  <ul class="list">
+                    <li>natural peanut butter with no added sugar </li>
+                    <li>applesauce</li>
+                    <li>bananas</li>
+                    <li>grapes</li>
+                    <li>Pineapples</li>
+                    <li>grape juice</li>
+                    <li>honey or maple syrup</li>
+                  </ul>
+                </div>
+
+                <div class="col-md-4 section">
+                  <div class="card-head">Normal Blood Sugar </div>
+                  <ul>
+                    <li >Fruit and vegetables</li>
+                    <ul>
+                      <li>grapefruit</li>
+                      <li>handful of berries</li>
+                      <li> fresh dates</li>
+                      <li>apricots</li>
+                      <li>mix carrots</li>
+                      <li>peas</li>
+                      <li>green beans</li>
+                    </ul>
+                  </ul>
+                </div>
+                
+                
+                <div class="col-md-4">
+                  <div class="card-head">High Blood Sugar Levels</div>
+                  <ul>
+                    <li>Drinks lots of water</li>
+                    <li>Fatty Fish</li>
+                    <li> Leafy Greens</li>
+                    <li>Cinnamon</li>
+                    <li>Eggs</li>
+                    <li>Chia Seeds</li>
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="container" id="collapsing">
+          <h3>Welcome {{user}}</h3>
+          {% if res == "Diet Chart" %}
+            
+            <p>
+              <a class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Specific Diet Chart</a>
+              
+            </p>
+            
+          {% endif %}
+          <p >
+            <h4> Day wise Diet Chart Click To View</h4>
+            <button class="btn " type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Show All</button>
+          </p>
+          <p>
+            <a class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Monday</a>
+            
+          </p>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample1">
+            
+            <div class="card-body w3-card-4 w3-animate-opacity">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="card-head">Breakfast</div>
+                  <ul>
+                    <li>One poached egg</li>
+                    <li>Half a small avocado spread  on one slice of Ezekiel bread</li>
+                    <li>one orange</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Lunch</div>
+                  <ul>
+                    <li>Mexican bowl: two-thirds of a cup low-sodium canned pinto beans</li>
+                    <li>1 cup chopped spinach</li>
+                    <li>a quarter cup chopped tomatoes</li>
+                    <li> a quarter cup bell peppers</li>
+                    <li>1 ounce (oz) cheese</li>
+                    <li>1 tablespoon (tbsp) salsa as sauce</li>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Snack</div>
+                  <ul>
+                    <li>20 1-gram baby carrots with 2 tbsp hummus. </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Dinner</div>
+                  <ul>
+                    <li>1 cup cooked lentil penne pasta</li>
+                    <li> 1.5 cups veggie tomato sauce (cook garlic, mushrooms, greens, zucchini, and eggplant into it)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w3-card-4 w3-animate-opacity">
+              <div class="card-header">
+                <h6 class="mode collapsed center" data-toggle="collapse" href="#collapse1">
+                Carbohydrates Dougnut
+                </h6>
+              </div>
+              <div id="collapse1" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><canvas id="PieChart"></canvas></div>
+                    <div class="col-md-3"></div>
+                    
+                    
+                  </div>
+                  <div >
+                    <p class="centeric">Total Carbohydrates: 125</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" id="collapsing">
+          <p>
+            <a class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Tuesday</a>
+          </p>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample2">
+            
+            <div class="w3-card-4 w3-animate-opacity card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Breakfast</div>
+                  <ul>
+                    <li> 1 cup (100g) cooked oatmeal</li>
+                    <li>three-quarters of a cup blueberries</li>
+                    <li> 1 oz almonds</li>
+                    <li>1 teaspoon (tsp) chia seeds</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Lunch</div>
+                  <ul>
+                    <li>2 cups fresh spinach</li>
+                    <li>2 oz grilled chicken breast</li>
+                    <li>half a cup chickpeas</li>
+                    <li> half a small avocado</li>
+                    <li>a half cup sliced strawberries</li>
+                    <li>one quarter cup shredded carrots</li>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Snack</div>
+                  <ul>
+                    <li>One small peach diced into one-third cup 2% cottage cheese </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Dinner</div>
+                  <ul>
+                    <li>Mediterranean couscous: two-thirds cup whole wheat cooked couscous</li>
+                    <li> half a cup sautéed eggplant</li>
+                    <li>four sundried tomatoes</li>
+                    <li>five jumbo olives chopped</li>
+                    <li> half a diced cucumber</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w3-card-4 w3-animate-opacity">
+              <div class="card-header">
+                <h6 class="mode collapsed center" data-toggle="collapse" href="#collapse2">
+                Carbohydrates Dougnut
+                </h6>
+              </div>
+              <div id="collapse2" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><canvas id="PieChart1"></canvas></div>
+                    <div class="col-md-3"></div>
+                    
+                    
+                  </div>
+                  <div >
+                    <p class="centeric">Total Carbohydrates: 128</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" id="collapsing">
+          <p>
+            <a class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Wednesday</a>
+          </p>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample3">
+            
+            <div class="w3-card-4 w3-animate-opacity card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Breakfast</div>
+                  <ul>
+                    <li> Two-egg veggie omelet (spinach, mushrooms,<br> bell pepper, avocado) with a half cup black beansl</li>
+                    <li>three-quarters of a cup blueberries</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Lunch</div>
+                  <ul>
+                    <li>  Sandwich:</li>
+                    <ul>
+                      <li>two regular slices high-fiber whole grain bread</li>
+                      <li>1 tbsp plain, no-fat Greek yogurt</li>
+                      <li> 1 tbsp mustard </li>
+                      <li>2 oz canned tuna in water mixed with a quarter cup of shredded carrots</li>
+                      <li> 1 tbsp dill relish</li>
+                      <li>1 cup sliced tomato</li>
+                      <li>half a medium apple</li>
+                    </ul>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Snack</div>
+                  <ul>
+                    <li>O1 cup unsweetened kefir</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Dinner</div>
+                  <ul>
+                    <li>Half a cup (50g) succotash</li>
+                    <li>  1 tsp butter</li>
+                    <li>2 oz pork tenderloin</li>
+                    <li>1 cup cooked asparagus</li>
+                    <li>half a cup fresh pineapple</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w3-card-4 w3-animate-opacity">
+              <div class="card-header">
+                <h6 class="mode collapsed center" data-toggle="collapse" href="#collapse3">
+                Carbohydrates Dougnut
+                </h6>
+              </div>
+              <div id="collapse3" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><canvas id="PieChart2"></canvas></div>
+                    <div class="col-md-3"></div>
+                    
+                    
+                  </div>
+                  <div >
+                    <p class="centeric">Total Carbohydrates: 120</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" id="collapsing">
+          <p>
+            <a class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Thursday</a>
+          </p>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample4">
+            
+            <div class="w3-card-4 w3-animate-opacity card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Breakfast</div>
+                  <ul>
+                    <li> Sweet potato toast </li>
+                    <ul>
+                      <li>two slices (100 g) toasted sweet potato</li>
+                      <li>topped with 1 oz goat cheese</li>
+                      <li> 1 tsp sprinkled flaxseed </li>
+                    </ul>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Lunch</div>
+                  <ul>
+                    <li>2 oz roast chicken</li>
+                    <li>1 cup raw cauliflower</li>
+                    <li>1 tbsp low-fat French dressing</li>
+                    <li> 1 cup fresh strawberries.</li>
+                    
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Snack</div>
+                  <ul>
+                    <li> 1 cup low-fat plain Greek yogurt mixed with half a small banana </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Dinner</div>
+                  <ul>
+                    <li> A two-thirds cup of quinoa</li>
+                    <li> 8 oz silken tofu</li>
+                    <li>1 cup cooked bok choy</li>
+                    <li>1 cup steamed broccoli</li>
+                    <li>2 tsp olive oil</li>
+                    <li> one kiwi</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w3-card-4 w3-animate-opacity">
+              <div class="card-header">
+                <h6 class="mode collapsed center" data-toggle="collapse" href="#collapse4">
+                Carbohydrates Dougnut
+                </h6>
+              </div>
+              <div id="collapse4" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><canvas id="PieChart3"></canvas></div>
+                    <div class="col-md-3"></div>
+                    
+                    
+                  </div>
+                  <div >
+                    <p class="centeric">Total Carbohydrates: 126</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" id="collapsing">
+          <p>
+            <a class="btn" type="button" data-toggle="collapse" data-target="#multiCollapse5" aria-expanded="false" aria-controls="multiCollapse5">Friday</a>
+          </p>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapse5">
+            
+            <div class="w3-card-4 w3-animate-opacity card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Breakfast</div>
+                  <ul>
+                    <li>  A one-third cup of Grape-Nuts (or similar high-fiber cereal)</li>
+                    <li>half a cup blueberries</li>
+                    <li> 1 cup unsweetened almond milk</li>
+                    
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Lunch</div>
+                  <ul>
+                    <li> Salad </li>
+                    <ul>
+                      <li>2 cups spinach</li>
+                      <li>a quarter cup tomatoes</li>
+                      <li>1 oz cheddar cheese</li>
+                      <li> 2 tbsp yogurt dressing </li>
+                      <li> a quarter cup grapes</li>
+                      <li>1 tsp pumpkin seeds</li>
+                      <li>2 oz roasted chickpeas</li>
+                    </ul>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Snack</div>
+                  <ul>
+                    <li>1 cup celery with 1 tbsp peanut butter </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Dinner</div>
+                  <ul>
+                    <li> 2 oz salmon filet, one medium baked potato</li>
+                    <li> 1 tsp butter</li>
+                    <li>1 tsp butter</li>
+                    <li>1.5 cups steamed asparagus. </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w3-card-4 w3-animate-opacity">
+              <div class="card-header">
+                <h6 class="mode collapsed center" data-toggle="collapse" href="#collapse5">
+                Carbohydrates Dougnut
+                </h6>
+              </div>
+              <div id="collapse5" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><canvas id="PieChart4"></canvas></div>
+                    <div class="col-md-3"></div>
+                    
+                    
+                  </div>
+                  <div >
+                    <p class="centeric">Total Carbohydrates: 133</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" id="collapsing">
+          <p>
+            <a class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">Saturday</a>
+          </p>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample6">
+            
+            <div class="w3-card-4 w3-animate-opacity card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Breakfast</div>
+                  <ul>
+                    <li> 1 cup low-fat plain Greek yogurt sweetened with half a banana mashed</li>
+                    <li>1 cup strawberries</li>
+                    <li> salsa as dressing</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Lunch</div>
+                  <ul>
+                    <li> Tacos </li>
+                    <ul>
+                      <li>two corn tortillas</li>
+                      <li>a one-third cup cooked black beans</li>
+                      <li>oz low-fat cheese</li>
+                      <li> 2 tbsp avocado </li>
+                      <li> 1 cup coleslaw</li>
+                    </ul>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Snack</div>
+                  <ul>
+                    <li>One cherry tomato and 10 baby carrots with 2 tbsp hummus. </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Dinner</div>
+                  <ul>
+                    <li> Half medium baked potato with skin</li>
+                    <li> 1 tsp butter</li>
+                    <li>1.5 cups steamed broccoli with 1 tsp nutritional yeast sprinkled on top</li>
+                    <li>three-quarters cup whole strawberries.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w3-card-4 w3-animate-opacity">
+              <div class="card-header">
+                <h6 class="mode collapsed center" data-toggle="collapse" href="#collapse6">
+                Carbohydrates Dougnut
+                </h6>
+              </div>
+              <div id="collapse6" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><canvas id="PieChart5"></canvas></div>
+                    <div class="col-md-3"></div>
+                    
+                    
+                  </div>
+                  <div >
+                    <p class="centeric">Total Carbohydrates: 157</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" id="collapsing">
+          <p>
+            <a class="btn " type="button" data-toggle="collapse" data-target="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">Sunday</a>
+          </p>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample7">
+            
+            <div class="w3-card-4 w3-animate-opacity card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Breakfast</div>
+                  <ul>
+                    <li>  Chocolate peanut oatmeal: </li>
+                    <ul>
+                      <li>1 cup cooked oatmeal</li>
+                      <li>1 scoop chocolate vegan or whey protein powder</li>
+                      <li>1 tbsp peanut butter</li>
+                      <li> 1 tbsp chia seeds. </li>
+                    </ul>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Lunch</div>
+                  <ul>
+                    <li>One small whole wheat pita pocket</li>
+                    <li>half a cup cucumber, half a cup tomatoes</li>
+                    <li>half a cup lentils</li>
+                    <li> half a cup leafy greens</li>
+                    <li> 2 tbsp salad dressing. </li>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-head">Snack</div>
+                  <ul>
+                    <li>1 oz almonds, one small grapefruit </li>
+                    <li>Total carbs: Approximately 26</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-head">Dinner</div>
+                  <ul>
+                    <li> 2 oz boiled shrimp</li>
+                    <li>  1 cup green peas</li>
+                    <li> 1 tsp butters</li>
+                    <li>half a cup cooked beets</li>
+                    <li> 1 cup sauteed Swiss chard</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w3-card-4 w3-animate-opacity">
+              <div class="card-header">
+                <h6 class="mode collapsed center" data-toggle="collapse" href="#collapse7">
+                Carbohydrates Dougnut
+                </h6>
+              </div>
+              <div id="collapse7" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><canvas id="PieChart6"></canvas></div>
+                    <div class="col-md-3"></div>  
+                  </div>
+                  <div >
+                    <p class="centeric">Total Carbohydrates: 156</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <script type="text/javascript">
+        {% block jquery %}
+          var ctx = document.getElementById('PieChart').getContext('2d');
+          var ctx1 = document.getElementById('PieChart1').getContext('2d');
+          var ctx2 = document.getElementById('PieChart2').getContext('2d');
+          var ctx3 = document.getElementById('PieChart3').getContext('2d');
+          var ctx4 = document.getElementById('PieChart4').getContext('2d');
+          var ctx5 = document.getElementById('PieChart5').getContext('2d');
+          var ctx6 = document.getElementById('PieChart6').getContext('2d');
+          var myChart = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+          labels: ["Breakfast","Lunch","Snack","Dinner"],
+          datasets: [{
+          data: [39,30,21,35],
+          backgroundColor: [
+          'rgb(255,0,0)',
+          ' rgb(0,0,255)',
+          'rgb(0,128,0)',
+          'rgb(255,255,0)'
+          ]
+          }],
+          },
+          
+          })
+          var myChart = new Chart(ctx1, {
+          type: 'doughnut',
+          data: {
+          labels: ["Breakfast","Lunch","Snack","Dinner"],
+          datasets: [{
+          data: [32,52,16,38],
+          backgroundColor: [
+          'rgb(255,0,0)',
+          ' rgb(0,0,255)',
+          'rgb(0,128,0)',
+          'rgb(255,255,0)'
+          ]
+          }],
+          },
+          
+          })
+          var myChart = new Chart(ctx2, {
+          type: 'doughnut',
+          data: {
+          labels: ["Breakfast","Lunch","Snack","Dinner"],
+          datasets: [{
+          data: [34,40,12,34],
+          backgroundColor: [
+          'rgb(255,0,0)',
+          ' rgb(0,0,255)',
+          'rgb(0,128,0)',
+          'rgb(255,255,0)'
+          ]
+          }],
+          },
+          
+          })
+          var myChart = new Chart(ctx3, {
+          type: 'doughnut',
+          data: {
+          labels: ["Breakfast","Lunch","Snack","Dinner"],
+          datasets: [{
+          data: [44,23,15,44],
+          backgroundColor: [
+          'rgb(255,0,0)',
+          ' rgb(0,0,255)',
+          'rgb(0,128,0)',
+          'rgb(255,255,0)'
+          ]
+          }],
+          },
+          
+          })
+          var myChart = new Chart(ctx4, {
+          type: 'doughnut',
+          data: {
+          labels: ["Breakfast","Lunch","Snack","Dinner"],
+          datasets: [{
+          data: [41,47,6,39],
+          backgroundColor: [
+          'rgb(255,0,0)',
+          ' rgb(0,0,255)',
+          'rgb(0,128,0)',
+          'rgb(255,255,0)'
+          ]
+          }],
+          },
+          
+          })
+          var myChart = new Chart(ctx5, {
+          type: 'doughnut',
+          data: {
+          labels: ["Breakfast","Lunch","Snack","Dinner"],
+          datasets: [{
+          data: [32,70,40,41],
+          backgroundColor: [
+          'rgb(255,0,0)',
+          ' rgb(0,0,255)',
+          'rgb(0,128,0)',
+          'rgb(255,255,0)'
+          ]
+          }],
+          },
+          
+          })
+          var myChart = new Chart(ctx6, {
+          type: 'doughnut',
+          data: {
+          labels: ["Breakfast","Lunch","Snack","Dinner"],
+          datasets: [{
+          data: [21,30,26,39],
+          backgroundColor: [
+          'rgb(255,0,0)',
+          ' rgb(0,0,255)',
+          'rgb(0,128,0)',
+          'rgb(255,255,0)'
+          ]
+          }],
+          },
+          
+          })
+          
+        {% endblock %}
+        
+        </script>
+        
+        
+      </body>
+    </html>
+  {% endblock %}

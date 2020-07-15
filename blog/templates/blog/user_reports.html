@@ -1,0 +1,35 @@
+{%extends 'blog/base.html'%}
+{% block content %}
+<div class="container w3-card-4 w3-sand w3-animate-opacity" id="formdiv">
+  <h3 class="center">Previous Reports of {{user}}</h3>
+  <div class="row">
+    {% for report in reports%}
+      <div class="col-md-4">
+        <div class="card text-center" style="width: 22rem; margin: 10px; padding: 10px;">
+          <div class="card-header">
+            Patient Information
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Record  </h5>
+            <p class="card-text">Date: {{report.date_posted}}</p>
+            <p class="card-text">Medicine:  {{report.medicine_taken}}</p>
+            <p class="card-text">Fasting Reading: {{report.fasting}}</p>
+            <p class="card-text">Posting Reading: {{report.posting}}</p>
+            
+            <div class="card-footer text-muted">
+              {{report.date_posted|timesince}} ago
+            </div>
+          </div>
+          
+        </div>
+        </div>
+        {%endfor%}
+        
+      
+    </div>
+      <div class="text-center">
+        
+        <button type="button" class="btn btn-outline-light btn-lg btn-block"><a class="txt2" href="{% url 'blog-result' user %}">Back To Precription</a></button>
+      </div>
+      </div>
+    {% endblock content%}

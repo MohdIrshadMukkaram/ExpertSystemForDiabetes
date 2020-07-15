@@ -1,0 +1,156 @@
+{%extends 'blog/base.html'%}
+{% block content %}
+  {% load static %}
+  <html>
+    <style type="text/css">
+    .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 350px;
+    border: 1px solid #c2a780;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    }
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+    }
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    }
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+    padding: 30px;
+    color: black;
+    }
+    /* Style the back side */
+    .flip-card-back {
+    padding: 20px;
+    background-color: #c2a780;
+    color: white;
+    transform: rotateY(180deg);
+    }
+    .card-text{
+      padding: 30px;
+    }
+    </style>
+    <body>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="w3-animate-zoom card text-center flip-card" style="width: 18rem;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front w3-sand">
+                <h3 class="card-text">Diabetes</h3>
+                <h4 class="card-text">What is it?</h4>
+              </div>
+              <div class="flip-card-back">
+                <h3>Diabetes</h3>
+                <p>The WHO defines diabetes as a chronic metabolic disease that occurs when the body does not produce enough insulin or does not use insulin (insulin resistance) that is produced, resulting in elevated blood glucose levels.</p>
+          
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="w3-animate-zoom card text-center flip-card" style="width: 18rem;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front w3-sand">
+                <h3 class="card-text">Diabetes</h3>
+                <h4 class="card-text">Huge Problem</h4>
+                
+                
+              </div>
+              <div class="flip-card-back">
+                <h3>Estimations</h3>
+                <p>It is estimated that 61.3 million people aged 20-79 years live with diabetes in India
+(2011 estimates). This number is expected to increase to 101.2 million by 2030.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class=" w3-animate-zoom card text-center flip-card" style="width: 18rem;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front w3-sand">
+                <h3 class="card-text">Cost</h3>
+
+                <h4 class="card-text">Alarmingly High Cost</h4>
+                
+              </div>
+              <div class="flip-card-back">
+                <h3>Costly</h3>
+                <p>The annual cost for India due to diabetes was about $38 billion in 2011.</p>
+                <p>According to the WHO, if one adult in a low-income family has diabetes, “as much as 25% of family
+income may be devoted to diabetes care.”</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="w3-animate-zoom card text-center flip-card" style="width: 18rem;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front w3-sand">
+                <h4 class="card-text">Introducing</h4>
+                <h4 class="card-text">ESD</h4>
+                
+              </div>
+              <div class="flip-card-back">
+                <h3>ESD</h3>
+                <p>ESD(Expert System for diabetes) is an effective way to fight with diabetes that is adversely spreading among millions of people.</p>
+                <p>It overcome the problem of traditional way of controlling diabetes which includes standing in long queues for doctors appointment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="w3-animate-zoom card text-center flip-card" style="width: 18rem;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front w3-sand">
+                <h4 class="card-text">Neural Network</h4>
+                <h4 class="card-text">ESD uses Neural Network</h4>
+                
+              </div>
+              <div class="flip-card-back">
+                <h3>Yes it uses Neural Network</h3>
+                <p>It takes the blood sugar levels and based on previous reports of the patient prescribe diabetic medicine.</p>
+                <p>It uses a Dataset containing all information that is used for determining which type of medicine is needed to control diabetes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="w3-animate-zoom card text-center flip-card" style="width: 18rem;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front w3-sand">
+                <h4 class="card-text">Diet Chart</h4>
+
+                <h4 class="card-text">ESD also gives a Diet Chart</h4>
+               
+              </div>
+              <div class="flip-card-back">
+                <h3>Diet Chart</h3>
+                <p>Diet is the most important treatment that a patient who has diabetes should follow.  </p>
+                <p>It will not only help patient to control diabetes but also gives some healthy and tasty recipes that patient will surely enjoy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+{% endblock content%}

@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+ 
+
+<body>
+  {% block content %}
+
+  <div class="w3-row ">
+    <div class="w3-container w3-quarter">
+    
+  </div>
+    <!-- Material form register -->
+  <div class="w3-card-4 w3-round-large w3-sand w3-animate-top w3-half w3-margin-bottom " >
+
+      <!--Card content-->
+      <div class="card-body ">
+
+          <h3 class="font-weight-bold text-center text-uppercase mt-4">ESD Registration</h3>
+
+          <!-- Form -->
+          <form class="pb-3 px-2" method="POST">
+            {% csrf_token %}
+              <!-- First name -->
+              <div class="md-form ">
+                  {{form|crispy}}
+              </div>
+              <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Register</button>
+          </div>
+          
+       </form>
+       <div class="border-top pt-3">
+        <small class="text-muted">Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
+       </div>
+          <!-- Form -->
+
+      </div>
+     </div>
+     <div class="w3-container w3-quarter">
+    
+  </div>
+     </div>
+  <!-- Material form register-->
+  {% endblock content %}
+
+
+</body>
+
+</html>
